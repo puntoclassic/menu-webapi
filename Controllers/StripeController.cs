@@ -60,18 +60,6 @@ public class StripeController : BaseController
 
                 }
 
-                try
-                {
-
-                }
-                catch (InvalidOperationException)
-                {
-
-                }
-
-
-
-
             }
             // ... handle other event types
             else

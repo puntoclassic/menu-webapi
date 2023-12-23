@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/menu-backend-net.csproj",
+                "${workspaceFolder}/menu-webapi.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/menu-backend-net.csproj",
+                "${workspaceFolder}/menu-webapi.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/menu-backend-net.csproj"
+                "${workspaceFolder}/menu-webapi.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
