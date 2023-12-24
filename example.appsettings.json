@@ -1,0 +1,23 @@
+{
+  "ConnectionStrings": {
+    "Default": "Data Source=./app.db"
+  },
+  "Email": {
+    "Host": "",
+    "Username": "",
+    "Password": "",
+    "Secure": true,
+    "Port": 465,
+    "Name": "Fittizzio"
+  },
+  "Frontend": {
+    "BaseUrl": "http://localhost:4200",
+    "ActivateAccountByTokenUrl": "/account/verifica-account/token",
+    "ResetPasswordByTokenUrl": "/account/reset-password/token",
+    "PaymentSuccessUrl": "/account/ordine/pagato",
+    "PaymentFailedUrl": "/account/ordine/pagamento-fallito"
+  },
+  "Stripe": {
+    "SecretKey": ""
+  }
+}
