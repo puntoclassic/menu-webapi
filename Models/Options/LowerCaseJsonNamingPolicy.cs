@@ -1,5 +1,5 @@
 using System.Text.Json;
-namespace MenuBackend.Models.Options
+namespace MenuWebapi.Models.Options
 {
     public class LowerCaseJsonNamingPolicy : JsonNamingPolicy
     {

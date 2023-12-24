@@ -1,9 +1,9 @@
-namespace MenuBackend.Controllers;
-using MenuBackend.Models.Data;
-using MenuBackend.Models.Entities;
+namespace MenuWebapi.Controllers;
+using MenuWebapi.Models.Data;
+using MenuWebapi.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
-using MenuBackend.Models.InputModel;
-using MenuBackend.Models.ResponseModel;
+using MenuWebapi.Models.InputModel;
+using MenuWebapi.Models.ResponseModel;
 using Microsoft.AspNetCore.Authorization;
 using Slugify;
 

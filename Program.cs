@@ -2,12 +2,12 @@ using System.Net;
 using System.Net.Mail;
 using System.Text;
 using FluentEmail.Core.Interfaces;
-using MenuBackend.Models;
-using MenuBackend.Models.Auth;
-using MenuBackend.Models.Auth.Policies;
-using MenuBackend.Models.Data;
-using MenuBackend.Models.Options;
-using MenuBackend.Services;
+using MenuWebapi.Models;
+using MenuWebapi.Models.Auth;
+using MenuWebapi.Models.Auth.Policies;
+using MenuWebapi.Models.Data;
+using MenuWebapi.Models.Options;
+using MenuWebapi.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -76,7 +76,7 @@ builder.Services.AddIdentityCore<ApplicationUser>(options =>
 })
 .AddEntityFrameworkStores<ApplicationDbContext>()
 .AddDefaultTokenProviders();
-builder.Services.AddScoped<MenuBackend.Services.TokenService, MenuBackend.Services.TokenService>();
+builder.Services.AddScoped<MenuWebapi.Services.TokenService, MenuWebapi.Services.TokenService>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: "myCorsPolicy", builder =>
@@ -97,8 +97,8 @@ builder.Services
     })
     .AddJwtBearer(options =>
     {
-        string ValidIssuer = jwtOptions?.ValidIssuer ?? "menuBackend";
-        string ValidAudience = jwtOptions?.ValidAudience ?? "menuBackend";
+        string ValidIssuer = jwtOptions?.ValidIssuer ?? "MenuWebapi";
+        string ValidAudience = jwtOptions?.ValidAudience ?? "MenuWebapi";
         string Key = jwtOptions?.Key ?? "fdc94cca304ff508ca4791c1c56f307e4a9d2b5377e9cf1174a4182d7e664385";
         options.TokenValidationParameters = new TokenValidationParameters()
         {

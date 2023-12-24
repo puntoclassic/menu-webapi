@@ -2,11 +2,11 @@ using System.Globalization;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using MenuBackend.Models.Auth;
-using MenuBackend.Models.Options;
+using MenuWebapi.Models.Auth;
+using MenuWebapi.Models.Options;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-namespace MenuBackend.Services
+namespace MenuWebapi.Services
 {
     public class TokenService
     {

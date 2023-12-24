@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
-using MenuBackend.Models.Data;
-namespace MenuBackend.Models.Annotations
+using MenuWebapi.Models.Data;
+namespace MenuWebapi.Models.Annotations
 {
     public class EmailUnique : ValidationAttribute
     {

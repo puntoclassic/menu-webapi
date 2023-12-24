@@ -1,9 +1,9 @@
-using MenuBackend.Models.Entities;
+using MenuWebapi.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using MenuBackend.Models.Auth;
-namespace MenuBackend.Models.Data
+using MenuWebapi.Models.Auth;
+namespace MenuWebapi.Models.Data
 {
     public class ApplicationDbContext : IdentityUserContext<ApplicationUser>
     {
@@ -13,6 +13,7 @@ namespace MenuBackend.Models.Data
         public DbSet<OrderState>? OrderStates { get; set; }
         public DbSet<Order>? Orders { get; set; }
         public DbSet<OrderDetail>? OrderDetails { get; set; }
+        public DbSet<Carrier> Carriers { get; set; }
 
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {

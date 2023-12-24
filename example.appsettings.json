@@ -19,5 +19,10 @@
   },
   "Stripe": {
     "SecretKey": ""
+  },
+  "Jwt": {
+    "ValidIssuer": "",
+    "ValidAudience": "",
+    "Key": ""
   }
 }

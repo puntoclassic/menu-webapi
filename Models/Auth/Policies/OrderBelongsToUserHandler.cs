@@ -1,15 +1,15 @@
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Text;
-using MenuBackend.Models.Data;
-using MenuBackend.Models.InputModel;
+using MenuWebapi.Models.Data;
+using MenuWebapi.Models.InputModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace MenuBackend.Models.Auth.Policies
+namespace MenuWebapi.Models.Auth.Policies
 {
 
     public class OrderBelongsToUserHandler : AuthorizationHandler<OrderBelongsToUserRequirement>

@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
-using MenuBackend.Models.Annotations;
+using MenuWebapi.Models.Annotations;
 #nullable disable
-namespace MenuBackend.Models.InputModel
+namespace MenuWebapi.Models.InputModel
 {
     public class PostUpdatePasswordRequest
     {

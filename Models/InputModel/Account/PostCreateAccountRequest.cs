@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
-using MenuBackend.Models.Annotations;
-namespace MenuBackend.Models.InputModel
+using MenuWebapi.Models.Annotations;
+namespace MenuWebapi.Models.InputModel
 {
     public class PostCreateAccountRequest
     {

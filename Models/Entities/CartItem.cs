@@ -1,4 +1,4 @@
-namespace MenuBackend.Models.Entities
+namespace MenuWebapi.Models.Entities
 {
     public class CartItem
     {

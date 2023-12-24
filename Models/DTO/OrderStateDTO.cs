@@ -1,4 +1,4 @@
-namespace MenuBackend.Models.DTO
+namespace MenuWebapi.Models.DTO
 {
 
     public class OrderStateDTO

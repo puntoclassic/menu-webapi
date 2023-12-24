@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Identity;
-namespace MenuBackend.Models.Auth
+namespace MenuWebapi.Models.Auth
 {
     public class ApplicationUser : IdentityUser
     {

@@ -1,9 +1,9 @@
-namespace MenuBackend.Models
+namespace MenuWebapi.Models
 {
     using AutoMapper;
-    using MenuBackend.Models.Auth;
-    using MenuBackend.Models.DTO;
-    using MenuBackend.Models.Entities;
+    using MenuWebapi.Models.Auth;
+    using MenuWebapi.Models.DTO;
+    using MenuWebapi.Models.Entities;
 
     public class MenuProfile : Profile
     {

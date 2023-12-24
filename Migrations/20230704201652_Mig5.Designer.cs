@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using MenuBackend.Models.Data;
+using MenuWebapi.Models.Data;
 #nullable disable
-namespace MenuBackend.Migrations
+namespace MenuWebapi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20230704201652_Mig5")]
@@ -61,7 +61,7 @@ namespace MenuBackend.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
-            modelBuilder.Entity("MenuBackend.Models.Auth.ApplicationUser", b =>
+            modelBuilder.Entity("MenuWebapi.Models.Auth.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -112,7 +112,7 @@ namespace MenuBackend.Migrations
                         .HasDatabaseName("UserNameIndex");
                     b.ToTable("AspNetUsers", (string)null);
                 });
-            modelBuilder.Entity("MenuBackend.Models.Entities.Category", b =>
+            modelBuilder.Entity("MenuWebapi.Models.Entities.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -125,7 +125,7 @@ namespace MenuBackend.Migrations
                     b.HasKey("Id");
                     b.ToTable("Categories");
                 });
-            modelBuilder.Entity("MenuBackend.Models.Entities.Food", b =>
+            modelBuilder.Entity("MenuWebapi.Models.Entities.Food", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -143,7 +143,7 @@ namespace MenuBackend.Migrations
                     b.HasIndex("CategoryId");
                     b.ToTable("Foods");
                 });
-            modelBuilder.Entity("MenuBackend.Models.Entities.Setting", b =>
+            modelBuilder.Entity("MenuWebapi.Models.Entities.Setting", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -158,7 +158,7 @@ namespace MenuBackend.Migrations
                 });
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("MenuBackend.Models.Auth.ApplicationUser", null)
+                    b.HasOne("MenuWebapi.Models.Auth.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -166,7 +166,7 @@ namespace MenuBackend.Migrations
                 });
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("MenuBackend.Models.Auth.ApplicationUser", null)
+                    b.HasOne("MenuWebapi.Models.Auth.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -174,20 +174,20 @@ namespace MenuBackend.Migrations
                 });
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("MenuBackend.Models.Auth.ApplicationUser", null)
+                    b.HasOne("MenuWebapi.Models.Auth.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
-            modelBuilder.Entity("MenuBackend.Models.Entities.Food", b =>
+            modelBuilder.Entity("MenuWebapi.Models.Entities.Food", b =>
                 {
-                    b.HasOne("MenuBackend.Models.Entities.Category", "Category")
+                    b.HasOne("MenuWebapi.Models.Entities.Category", "Category")
                         .WithMany("Foods")
                         .HasForeignKey("CategoryId");
                     b.Navigation("Category");
                 });
-            modelBuilder.Entity("MenuBackend.Models.Entities.Category", b =>
+            modelBuilder.Entity("MenuWebapi.Models.Entities.Category", b =>
                 {
                     b.Navigation("Foods");
                 });

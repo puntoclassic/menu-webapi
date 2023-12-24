@@ -1,17 +1,17 @@
 using AutoMapper;
-using MenuBackend.Models.Auth;
-using MenuBackend.Models.Data;
-using MenuBackend.Models.Entities;
-using MenuBackend.Models.InputModel;
-using MenuBackend.Models.Options;
-using MenuBackend.Models.ResponseModel;
-using MenuBackend.Services;
+using MenuWebapi.Models.Auth;
+using MenuWebapi.Models.Data;
+using MenuWebapi.Models.Entities;
+using MenuWebapi.Models.InputModel;
+using MenuWebapi.Models.Options;
+using MenuWebapi.Models.ResponseModel;
+using MenuWebapi.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 
-namespace MenuBackend.Controllers
+namespace MenuWebapi.Controllers
 {
 
     [ApiController]

@@ -1,11 +1,11 @@
-using MenuBackend.Models.Data;
-using MenuBackend.Models.Entities;
+using MenuWebapi.Models.Data;
+using MenuWebapi.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MenuBackend.Models.ResponseModel;
-using MenuBackend.Models.InputModel;
+using MenuWebapi.Models.ResponseModel;
+using MenuWebapi.Models.InputModel;
 using Microsoft.AspNetCore.Authorization;
-namespace MenuBackend.Controllers;
+namespace MenuWebapi.Controllers;
 [ApiController]
 [Route("[controller]/[action]")]
 public class FoodController : BaseController

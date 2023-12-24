@@ -1,4 +1,4 @@
-namespace MenuBackend.Models.EmailModel
+namespace MenuWebapi.Models.EmailModel
 {
     public class PasswordResetModel
     {

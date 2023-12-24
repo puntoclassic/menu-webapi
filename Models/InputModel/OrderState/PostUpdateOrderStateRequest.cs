@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-namespace MenuBackend.Models.InputModel
+namespace MenuWebapi.Models.InputModel
 {
     public class PostUpdateOrderState
     {

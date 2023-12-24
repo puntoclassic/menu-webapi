@@ -1,10 +1,10 @@
-using MenuBackend.Models.Data;
-using MenuBackend.Models.Entities;
-using MenuBackend.Models.InputModel;
-using MenuBackend.Models.ResponseModel;
+using MenuWebapi.Models.Data;
+using MenuWebapi.Models.Entities;
+using MenuWebapi.Models.InputModel;
+using MenuWebapi.Models.ResponseModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-namespace MenuBackend.Controllers
+namespace MenuWebapi.Controllers
 {
     [ApiController]
     [Route("[controller]/[action]")]

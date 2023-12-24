@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 #nullable disable
-namespace MenuBackend.Migrations
+namespace MenuWebapi.Migrations
 {
     /// <inheritdoc />
     public partial class Mig8 : Migration

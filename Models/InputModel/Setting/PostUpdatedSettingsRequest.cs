@@ -1,4 +1,4 @@
-namespace MenuBackend.Models.InputModel
+namespace MenuWebapi.Models.InputModel
 {
     public class PostUpdatedSettingsRequest
     {

@@ -1,5 +1,5 @@
-using MenuBackend.Models.Entities;
-namespace MenuBackend.Models.ResponseModel;
+using MenuWebapi.Models.Entities;
+namespace MenuWebapi.Models.ResponseModel;
 public class GetCategoryResponse
 {
     public int Count { get; set; } = 0;

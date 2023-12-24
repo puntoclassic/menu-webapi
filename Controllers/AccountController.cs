@@ -1,18 +1,18 @@
-using MenuBackend.Models.Auth;
-using MenuBackend.Models.Data;
+using MenuWebapi.Models.Auth;
+using MenuWebapi.Models.Data;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using MenuBackend.Models.InputModel;
-using MenuBackend.Models.ResponseModel;
-using MenuBackend.Models.Options;
-using MenuBackend.Services;
+using MenuWebapi.Models.InputModel;
+using MenuWebapi.Models.ResponseModel;
+using MenuWebapi.Models.Options;
+using MenuWebapi.Services;
 using System.Text;
 using System.Net;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
-using MenuBackend.Models.EmailModel;
-namespace MenuBackend.Controllers;
+using MenuWebapi.Models.EmailModel;
+namespace MenuWebapi.Controllers;
 [ApiController]
 [Route("[controller]/[action]")]
 public class AccountController : BaseController
@@ -195,14 +195,20 @@ public class AccountController : BaseController
             if (validatePassword)
             {
                 var userClaims = await userManager.GetClaimsAsync(user);
-                var accessToken = tokenService.CreateToken(user, userClaims);
-                HttpContext.Response.Cookies.Append("token", accessToken, new CookieOptions
+
+                if (user.EmailConfirmed)
                 {
-                    Expires = DateTimeOffset.FromUnixTimeSeconds(10 * 86400),
-                    MaxAge = TimeSpan.FromDays(10),
-                    SameSite = SameSiteMode.Lax,
-                    HttpOnly = true
-                });
+                    var accessToken = tokenService.CreateToken(user, userClaims);
+
+                    HttpContext.Response.Cookies.Append("token", accessToken, new CookieOptions
+                    {
+                        Expires = DateTimeOffset.FromUnixTimeSeconds(10 * 86400),
+                        MaxAge = TimeSpan.FromDays(10),
+                        SameSite = SameSiteMode.Lax,
+                        HttpOnly = true
+                    });
+                }
+
                 return new PostLoginResponse
                 {
                     Status = "Ok",
@@ -215,6 +221,7 @@ public class AccountController : BaseController
                         Role = userClaims.First(w => w.Type == ClaimTypes.Role).Value ?? "user"
                     }
                 };
+
             }
             else
             {

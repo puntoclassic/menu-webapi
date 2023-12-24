@@ -1,6 +1,6 @@
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
-namespace MenuBackend.Models.ResponseModel
+namespace MenuWebapi.Models.ResponseModel
 {
     public class PostLoginResponse
     {

@@ -1,4 +1,4 @@
-namespace MenuBackend.Models.ResponseModel
+namespace MenuWebapi.Models.ResponseModel
 {
     public class PostGenericResponse
     {

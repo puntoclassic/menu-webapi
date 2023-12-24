@@ -1,10 +1,10 @@
-using MenuBackend.Models.Data;
-using MenuBackend.Models.Entities;
-using MenuBackend.Models.InputModel;
-using MenuBackend.Models.ResponseModel;
+using MenuWebapi.Models.Data;
+using MenuWebapi.Models.Entities;
+using MenuWebapi.Models.InputModel;
+using MenuWebapi.Models.ResponseModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-namespace MenuBackend.Controllers;
+namespace MenuWebapi.Controllers;
 [ApiController]
 [Route("[controller]/[action]")]
 public class SettingController : BaseController
@@ -16,7 +16,16 @@ public class SettingController : BaseController
     [HttpGet]
     public Setting? GetAll()
     {
-        return dbContext.Settings != null ? dbContext.Settings!.First() : null;
+        var item = new Setting();
+        try
+        {
+            item = dbContext.Settings!.First();
+        }
+        catch (InvalidOperationException)
+        {
+
+        }
+        return item;
     }
     [HttpPost]
     [Authorize(Roles = "admin")]
@@ -27,7 +36,6 @@ public class SettingController : BaseController
         {
             settings.SiteName = inputModel.SiteName ?? settings.SiteName;
             settings.SiteSubtitle = inputModel.SiteSubtitle ?? settings.SiteSubtitle;
-            settings.ShippingCosts = inputModel.ShippingCosts ?? settings.ShippingCosts;
             settings.OrderCreatedStateId = inputModel.OrderCreatedStateId ?? settings.OrderCreatedStateId;
             settings.OrderPaidStateId = inputModel.OrderPaidStateId ?? settings.OrderPaidStateId;
             dbContext.Update(settings);

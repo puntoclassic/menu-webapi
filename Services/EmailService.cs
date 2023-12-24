@@ -1,5 +1,5 @@
-using MenuBackend.Models.Options;
-using MenuBackend.Models.EmailModel;
+using MenuWebapi.Models.Options;
+using MenuWebapi.Models.EmailModel;
 using MimeKit;
 using FluentEmail.Core;
 using Microsoft.Extensions.Options;
@@ -7,9 +7,9 @@ using FluentEmail.Razor;
 using System.Net;
 using System.Net.Mail;
 using FluentEmail.Core.Models;
-using MenuBackend.Models.Entities;
+using MenuWebapi.Models.Entities;
 
-namespace MenuBackend.Services
+namespace MenuWebapi.Services
 {
     public class EmailService
     {
@@ -162,7 +162,9 @@ namespace MenuBackend.Services
                     Password = emailOptionsModel.Password,
                     UserName = emailOptionsModel.Username,
                 },
+                UseDefaultCredentials = false,
                 Port = emailOptionsModel.Port,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
                 EnableSsl = emailOptionsModel.Secure,
             });
 

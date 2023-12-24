@@ -1,13 +1,13 @@
-using MenuBackend.Models.Data;
-using MenuBackend.Models.Options;
-using MenuBackend.Services;
+using MenuWebapi.Models.Data;
+using MenuWebapi.Models.Options;
+using MenuWebapi.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Stripe;
 using Stripe.Checkout;
 
-namespace MenuBackend.Controllers;
+namespace MenuWebapi.Controllers;
 [ApiController]
 [Route("[controller]/[action]")]
 public class StripeController : BaseController

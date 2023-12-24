@@ -1,4 +1,4 @@
-namespace MenuBackend.Models.Options
+namespace MenuWebapi.Models.Options
 {
     public class FrontendOptions
     {

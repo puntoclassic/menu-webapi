@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using MenuBackend.Models.Data;
+using MenuWebapi.Models.Data;
 #nullable disable
-namespace MenuBackend.Migrations
+namespace MenuWebapi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20230517075900_Mig2")]
@@ -17,7 +17,7 @@ namespace MenuBackend.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.5");
-            modelBuilder.Entity("MenuBackend.Models.Entities.Category", b =>
+            modelBuilder.Entity("MenuWebapi.Models.Entities.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -30,7 +30,7 @@ namespace MenuBackend.Migrations
                     b.HasKey("Id");
                     b.ToTable("Categories");
                 });
-            modelBuilder.Entity("MenuBackend.Models.Entities.Food", b =>
+            modelBuilder.Entity("MenuWebapi.Models.Entities.Food", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -48,7 +48,7 @@ namespace MenuBackend.Migrations
                     b.HasIndex("CategoryId");
                     b.ToTable("Foods");
                 });
-            modelBuilder.Entity("MenuBackend.Models.Entities.Setting", b =>
+            modelBuilder.Entity("MenuWebapi.Models.Entities.Setting", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -61,14 +61,14 @@ namespace MenuBackend.Migrations
                     b.HasKey("Id");
                     b.ToTable("Settings");
                 });
-            modelBuilder.Entity("MenuBackend.Models.Entities.Food", b =>
+            modelBuilder.Entity("MenuWebapi.Models.Entities.Food", b =>
                 {
-                    b.HasOne("MenuBackend.Models.Entities.Category", "Category")
+                    b.HasOne("MenuWebapi.Models.Entities.Category", "Category")
                         .WithMany("Foods")
                         .HasForeignKey("CategoryId");
                     b.Navigation("Category");
                 });
-            modelBuilder.Entity("MenuBackend.Models.Entities.Category", b =>
+            modelBuilder.Entity("MenuWebapi.Models.Entities.Category", b =>
                 {
                     b.Navigation("Foods");
                 });

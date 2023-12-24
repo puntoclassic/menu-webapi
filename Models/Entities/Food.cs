@@ -1,4 +1,4 @@
-namespace MenuBackend.Models.Entities
+namespace MenuWebapi.Models.Entities
 {
     public class Food
     {
@@ -8,5 +8,7 @@ namespace MenuBackend.Models.Entities
         public float Price { get; set; } = 0;
         public int? CategoryId { get; set; }
         public Category? Category { get; set; }
+        public bool Deleted { get; set; } = false;
+
     }
 }

@@ -1,6 +1,6 @@
-using MenuBackend.Models.Entities;
+using MenuWebapi.Models.Entities;
 
-namespace MenuBackend.Models.DTO
+namespace MenuWebapi.Models.DTO
 {
 
     public class OrderGetAllDTO

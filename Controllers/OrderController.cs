@@ -1,13 +1,13 @@
 using AutoMapper;
-using MenuBackend.Models;
-using MenuBackend.Models.Auth;
-using MenuBackend.Models.Data;
-using MenuBackend.Models.DTO;
-using MenuBackend.Models.Entities;
-using MenuBackend.Models.InputModel;
-using MenuBackend.Models.Options;
-using MenuBackend.Models.ResponseModel;
-using MenuBackend.Services;
+using MenuWebapi.Models;
+using MenuWebapi.Models.Auth;
+using MenuWebapi.Models.Data;
+using MenuWebapi.Models.DTO;
+using MenuWebapi.Models.Entities;
+using MenuWebapi.Models.InputModel;
+using MenuWebapi.Models.Options;
+using MenuWebapi.Models.ResponseModel;
+using MenuWebapi.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -16,7 +16,7 @@ using Microsoft.Extensions.Options;
 using Stripe;
 using Stripe.Checkout;
 
-namespace MenuBackend.Controllers;
+namespace MenuWebapi.Controllers;
 [ApiController]
 [Route("[controller]/[action]")]
 
@@ -45,14 +45,15 @@ public class OrderController : BaseController
 
             var settings = dbContext.Settings?.Include(i => i.OrderCreatedState).First();
 
+            var carrier = dbContext.Carriers?.Where(w => w.Id == cart.CarrierId).FirstOrDefault();
+
             var order = new Order
             {
                 IsPaid = false,
-                DeliveryAddress = cart.Indirizzo,
-                DeliveryTime = cart.Orario,
-                IsShippingRequired = cart.TipologiaConsegna == "DOMICILIO",
-                Notes = cart.Note,
-                ShippingCosts = (float)(settings != null ? settings.ShippingCosts! : 2),
+                DeliveryAddress = cart.DeliveryAddress,
+                DeliveryTime = cart.DeliveryType,
+                Notes = cart.Notes,
+                ShippingCosts = (float)(carrier != null ? carrier!.Cost : 0),
                 User = user,
                 OrderState = settings?.OrderCreatedState
             };
@@ -114,7 +115,6 @@ public class OrderController : BaseController
                 order.IsPaid = inputModel.IsPaid;
                 order.DeliveryAddress = inputModel.DeliveryAddress;
                 order.DeliveryTime = inputModel.DeliveryTime;
-                order.IsShippingRequired = inputModel.IsShippingRequired;
                 order.ShippingCosts = inputModel.ShippingCosts;
                 order.Notes = inputModel.Notes;
                 order.OrderStateId = inputModel.OrderStateId;
@@ -231,7 +231,7 @@ public class OrderController : BaseController
                     });
                 }
 
-                if (order.IsShippingRequired)
+                if (order.ShippingCosts > 0)
                 {
                     lineItems.Add(new SessionLineItemOptions
                     {
@@ -247,6 +247,8 @@ public class OrderController : BaseController
                         }
                     });
                 }
+
+
 
                 var options = new SessionCreateOptions
                 {

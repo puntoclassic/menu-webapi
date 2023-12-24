@@ -1,6 +1,6 @@
-using MenuBackend.Models.DTO;
+using MenuWebapi.Models.DTO;
 
-namespace MenuBackend.Models.ResponseModel
+namespace MenuWebapi.Models.ResponseModel
 {
     public class GetUserOrdersResponse
     {

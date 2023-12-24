@@ -1,5 +1,5 @@
 using System.Text.Json.Serialization;
-namespace MenuBackend.Models.Entities
+namespace MenuWebapi.Models.Entities
 {
     public class Category
     {
@@ -9,5 +9,6 @@ namespace MenuBackend.Models.Entities
         public string? ImageUrl { get; set; }
         [JsonIgnore]
         public ICollection<Food>? Foods { get; set; }
+        public bool Deleted { get; set; } = false;
     }
 }

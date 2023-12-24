@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
-using MenuBackend.Models.Auth;
+using MenuWebapi.Models.Auth;
 
-namespace MenuBackend.Models.Entities
+namespace MenuWebapi.Models.Entities
 {
 
     public class OrderDetailDTO

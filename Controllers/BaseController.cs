@@ -1,10 +1,10 @@
 using System.Security.Claims;
-using MenuBackend.Models.Auth;
-using MenuBackend.Models.Data;
+using MenuWebapi.Models.Auth;
+using MenuWebapi.Models.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MenuBackend.Controllers
+namespace MenuWebapi.Controllers
 {
 
 

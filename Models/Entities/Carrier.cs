@@ -1,11 +1,11 @@
-using System.Text.Json.Serialization;
 namespace MenuWebapi.Models.Entities
 {
-    public class OrderState
+
+    public class Carrier
     {
         public int Id { get; set; }
         public string Name { get; set; } = "";
-        public string? CssBadgeClass { get; set; }
+        public decimal Cost { get; set; } = 2;
         public bool Deleted { get; set; } = false;
     }
 }

@@ -1,7 +1,7 @@
-using MenuBackend.Models.Data;
+using MenuWebapi.Models.Data;
 using Microsoft.AspNetCore.Authorization;
 
-namespace MenuBackend.Models.Auth.Policies
+namespace MenuWebapi.Models.Auth.Policies
 {
 
 
